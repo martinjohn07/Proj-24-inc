@@ -4,7 +4,7 @@ const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 
-var paper,dustbin,ground
+var paper,dustbin,ground,box1,box2,Box
 
 function preload()
 {	
@@ -13,13 +13,14 @@ function preload()
 function setup() {
 	createCanvas(800, 700);
 
-
 	
-ground=createSprite(width/2, height-35, width,10);
-ground.shapeColor=("yellow");
+	box1 = new Box(200,300,50,50);
+    box2 = new Box(240,100,50,100);
+    ground = new Ground(200,height,400,20)
 
 
-Matter.Bodies.circle(200,100,20)
+
+
 
 
 
@@ -32,9 +33,9 @@ engine = Engine.create();
 
 	Engine.run(engine);
   
-	Matter.Bodies.circle(200,100,20)
+	
 
-	ground = Bodies.rectangle(width/2, 650, width, 10 , {isStatic:true} );
+	
  	World.add(world, ground);
 
 }
@@ -48,7 +49,9 @@ function draw() {
 
 
 
-
+box1.display()
+box2.display()
+rect.display()
 
   drawSprites();
  
